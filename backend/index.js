@@ -140,7 +140,7 @@ app.post('/exec', async (req, res) => {
   }
 });
 
-app.listen(8000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Server running on htpp://localhost:8000")
 })
-io.listen(8001)
+io.listen(process.env.PORTIO)
