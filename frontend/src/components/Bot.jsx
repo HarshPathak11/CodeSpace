@@ -15,7 +15,7 @@ function Bot() {
       a.push(que)
       setChat(a);
       console.log(chat);
-      const response =await fetch("http://localhost:8000/",{
+      const response =await fetch("https://codespace-kp9s.onrender.com/",{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json' // Specify the content type as JSON

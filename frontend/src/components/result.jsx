@@ -11,7 +11,7 @@ function Output({language,sourceCode}){
         console.log(language,sourceCode)
         try {
             setLoad(true)
-            const response = await fetch('http://localhost:8000/exec', {
+            const response = await fetch('https://codespace-kp9s.onrender.com/exec', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
