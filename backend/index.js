@@ -3,11 +3,12 @@ import cors from 'cors'
 import {Server} from 'socket.io'
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import dotenv from 'dotenv'
-
+import http from 'http'
 import axios from 'axios';
 
 const app=express();
-const io=new Server(
+const server=http.createServer(app)
+const io=new Server(server,
     {cors:true}
 );
 
@@ -19,6 +20,8 @@ dotenv.config(
       path:'.\env'
   }
 )
+
+
 
 const emailtoSocketMapping=new Map();
 const SocketToUserMapping=new Map();
@@ -140,7 +143,7 @@ app.post('/exec', async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT,()=>{
+server.listen(process.env.PORT,()=>{
     console.log("Server running on htpp://localhost:8000")
 })
-io.listen(process.env.PORTIO)
+// io.listen(process.env.PORTIO)
